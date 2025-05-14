@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Afnan Danish",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 9.6, "left": -14.36, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 99.14,
+      "left": 173.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": -115.8,
+      "left": -148.2,
+      "attrs": {}
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": 62, "left": -102.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.2", "oled1:GND", "black", [ "v0", "h124.8" ] ],
+    [ "oled1:VCC", "esp:5V", "red", [ "v-105.6", "h-249.45", "v211.2" ] ],
+    [ "oled1:SCL", "esp:22", "yellow", [ "v0" ] ],
+    [ "oled1:SDA", "esp:21", "green", [ "v0" ] ],
+    [ "joystick1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "joystick1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "sw1:1", "esp:5V", "green", [ "v0" ] ],
+    [ "sw1:3", "esp:GND.2", "green", [ "v0" ] ],
+    [ "sw1:2", "esp:13", "green", [ "v0" ] ],
+    [ "joystick1:HORZ", "esp:32", "green", [ "v0" ] ],
+    [ "joystick1:VERT", "esp:33", "green", [ "v0" ] ],
+    [ "joystick1:SEL", "esp:5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
